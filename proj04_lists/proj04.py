@@ -15,6 +15,9 @@ practice with lists
 a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
 #and write a program that prints out all the elements of the list that are less than 5.
 
+for item in a:
+    if item <= 5:
+        print item
 
 
 
@@ -27,6 +30,10 @@ c = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 # and write a program that creates and prints a list that contains only the elements
 # that are common between the lists (without duplicates).
 # Make sure your program works on two lists of different sizes.
+
+for item in b:
+    if item in b:
+        print item in c
 
 
 
