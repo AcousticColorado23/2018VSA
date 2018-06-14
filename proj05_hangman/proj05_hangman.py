@@ -52,44 +52,62 @@ word = choose_word(wordlist)
 L = []
 L2 = []
 var = string.lowercase
-counter = 6
-game = 1
-Answer = False
-index =
+counter = 10
+exit = 1
+
+A2 = False
 
 for letter in word:
     L.append(letter)
     L2.append("_")
 
-print "Welcome to Hangman!"
+print "Welcome to Hangman! Type 0 to exit."
 print "I am thinking of a word " +str(len(word)) + " letters long."
 print L2
+print word
 
-L2[index] = "user_guess"
 
-while game:
+while counter > 0 and exit == 1:
+    Answer = False
     print "------------------"
     print "Guesses: " + str(counter)
     print "Available letters: " + var
     user_guess = raw_input("Please enter a letter: ")
-    counter = counter - 1
+
     for letter in word:
         if user_guess == letter:
             var = var.replace(user_guess, "")
             #print L2
             Answer = True
+
         elif user_guess != letter:
             var = var.replace(user_guess, "")
             #print "YOU'RE WRONG!"
             #print L2
 
-        else:
-            game = game - 1
 
-    if Answer == False:
+
+        else:
+            counter = counter + 1
+
+
+
+
+    if user_guess == "0":
+        exit = exit - 1
+    elif Answer == False:
         print "YOU'RE WRONG!"
+        counter = counter - 1
     else:
         print "Nice, you got a letter!"
+        c2 = 0
+        for letter in L:
+            on = "_"
+            nn = user_guess
+            if letter == nn:
+                L2[c2] = nn
+            c2 = c2 + 1
+    print L2
 
 
 
